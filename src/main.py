@@ -17,4 +17,9 @@ print(f'Updated URL: {url}')
 with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
     print(f'url={url}', file=f)
 
-print('Finished Success.')
+# https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
+# print("::notice::Notice Annotation")
+# print("::warning::Warning Annotation")
+# print("::error::Error Annotation")
+
+print('\u001b[32;1mFinished Success.')
