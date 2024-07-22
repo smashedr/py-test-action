@@ -7,12 +7,12 @@ branding:
 
 inputs:
   url:
-    description: "URL with {version} in String"
+    description: "URL with {ref} in String"
     required: true
 
 outputs:
   url:
-    description: "Update URL"
+    description: "URL Output"
 
 runs:
   using: "docker"

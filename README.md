@@ -17,7 +17,7 @@
 | url   | **Yes**  | -       | URL with `{ref}` in the string. |
 
 ```yaml
-  - name: "Mozilla Addon Update"
+  - name: "PY Test Action"
     uses: smashedr/py-test-action@master
     with:
       url: "https://example.com/?ref={ref}"
