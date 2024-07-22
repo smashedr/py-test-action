@@ -1,0 +1,21 @@
+name: "Test"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: "PY Test Action"
+        id: update
+        uses: smashedr/py-test-action@master
+        with:
+          url: "https://example.com/?ref={ref}"
+
+      - name: "Echo Output"
+        run: |
+          echo '${{ steps.update.outputs.url }}'
