@@ -6,13 +6,14 @@ branding:
   color: "green"
 
 inputs:
-  url:
-    description: "URL with {ref} in String"
-    required: true
+  milliseconds:
+    description: "Your input description here"
+    required: false
+    default: "1000"
 
 outputs:
-  url:
-    description: "URL Output"
+  time:
+    description: "Your output description here"
 
 runs:
   using: "docker"

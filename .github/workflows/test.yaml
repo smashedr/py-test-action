@@ -3,11 +3,8 @@ name: "Test"
 on:
   workflow_dispatch:
   push:
-#    branches:
-#      - master
-#  pull_request:
-#    branches:
-#      - master
+    paths:
+      - "src/**"
 
 jobs:
   test:
@@ -23,8 +20,27 @@ jobs:
         id: test
         uses: ./
         with:
-          url: "https://example.com/?ref={ref}"
+          milliseconds: 2000
 
       - name: "Echo Outputs"
         run: |
-          echo '${{ steps.test.outputs.url }}'
+          echo '${{ steps.test.outputs.time }}'
+
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: "Flake8"
+        run: |
+          python -m pip install flake8
+          flake8 src

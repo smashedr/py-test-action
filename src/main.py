@@ -1,25 +1,26 @@
+import datetime
 import os
+from wait import sleep
 
-input_url = os.environ.get('INPUT_URL')
-print(f'Processing URL: {input_url}')
+input_ms = int(os.environ.get('INPUT_MILLISECONDS'))
+print(f'input_ms: {input_ms}')
 
-ref_name = os.environ.get('GITHUB_REF_NAME')
-print(f'Using GITHUB_REF_NAME: {ref_name}')
+repo = os.environ.get('GITHUB_REPO')
+owner = os.environ.get('GITHUB_OWNER')
+print(f'repo: {repo}')
+print(f'owner: {owner}')
 
-url = input_url.format(ref=ref_name)
-print(f'Updated URL: {url}')
+print(f'{datetime.datetime.now().isoformat()}')
+result = sleep(input_ms)
+print(f'result: {result}')
 
-# https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
-# print(f'::set-output name=url::{url}')
-# print(f'::set-output name=result::{json.dumps(result)}')
+with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+    print(f'time={result}', file=f)
+
+print('\u001b[32;1mFinished Success.')
 
 # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter
-with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-    print(f'url={url}', file=f)
-
 # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
 # print("::notice::Notice Annotation")
 # print("::warning::Warning Annotation")
 # print("::error::Error Annotation")
-
-print('\u001b[32;1mFinished Success.')

@@ -9,34 +9,47 @@
 
 * [Inputs](#Inputs)
 * [Outputs](#Outputs)
+* [Development](#Development)
 
 ## Inputs
 
-| input | required | default | description                     |
-|-------|----------|---------|---------------------------------|
-| url   | **Yes**  | -       | URL with `{ref}` in the string. |
+| input        | required | default | description          |
+|--------------|----------|---------|----------------------|
+| milliseconds | No       | 1000    | Milliseconds to wait |
 
 ```yaml
   - name: "PY Test Action"
     uses: smashedr/py-test-action@master
     with:
-      url: "https://example.com/?ref={ref}"
+      milliseconds: 2000
 ```
 
 ## Outputs
 
-| output | description       |
-|--------|-------------------|
-| url    | Update URL Result |
+| output | description    |
+|--------|----------------|
+| time   | Resulting Time |
 
 ```yaml
   - name: "PY Test Action"
-    id: update
+    id: test
     uses: smashedr/py-test-action@master
     with:
-      url: "https://example.com/?ref={ref}"
+      milliseconds: 2000
 
   - name: "Echo Output"
     run: |
-      echo '${{ steps.update.outputs.url }}'
+      echo '${{ steps.test.outputs.time }}'
 ```
+
+# Development
+
+1. Install `act`: https://nektosact.com/installation/index.html
+2. Run `act -j test`
+
+For advanced using with things like secrets, variables and context see: https://nektosact.com/usage/index.html
+
+You should also review the options from `act --help`
+
+Note, the `.env`, `.secrets` and `.vars` files are automatically sourced with no extra options.
+To source `event.json` you need to run act with `act -e event.json`
