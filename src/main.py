@@ -5,8 +5,8 @@ from wait import sleep
 input_ms = int(os.environ.get('INPUT_MILLISECONDS'))
 print(f'input_ms: {input_ms}')
 
-repo = os.environ.get('GITHUB_REPO')
-owner = os.environ.get('GITHUB_OWNER')
+repo = os.environ.get('GITHUB_REPOSITORY').split('/')[0]
+owner = os.environ.get('GITHUB_REPOSITORY').split('/')[1]
 print(f'repo: {repo}')
 print(f'owner: {owner}')
 
