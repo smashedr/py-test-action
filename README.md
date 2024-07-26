@@ -1,6 +1,8 @@
 [![Tags](https://img.shields.io/github/actions/workflow/status/smashedr/py-test-action/tags.yaml?logo=github&logoColor=white&label=tags)](https://github.com/smashedr/py-test-action/actions/workflows/tags.yaml)
 [![Test](https://img.shields.io/github/actions/workflow/status/smashedr/py-test-action/test.yaml?logo=github&logoColor=white&label=test)](https://github.com/smashedr/py-test-action/actions/workflows/test.yaml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=smashedr_py-test-action&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=smashedr_py-test-action)
 [![GitHub Release Version](https://img.shields.io/github/v/release/smashedr/py-test-action?logo=github)](https://github.com/smashedr/py-test-action/releases/latest)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/smashedr/py-test-action?logo=github&logoColor=white&label=updated)](https://github.com/smashedr/py-test-action/graphs/commit-activity)
 [![GitHub Top Language](https://img.shields.io/github/languages/top/smashedr/py-test-action?logo=htmx&logoColor=white)](https://github.com/smashedr/py-test-action)
 [![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=github&logoColor=white)](https://cssnr.github.io/)
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
