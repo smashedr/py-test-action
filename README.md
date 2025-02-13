@@ -21,11 +21,15 @@ This includes inputs, outputs, job summary, and automatic token authentication.
 
 ## Inputs
 
-| input   | required | default               | description             |
-| ------- | -------- | --------------------- | ----------------------- |
-| tag     | No       | test                  | Tag to Create or Update |
-| summary | No       | true                  | Add Summary to Job      |
-| token   | No       | `${{ github.token }}` | Only if External Tokens |
+| input   | required | default               | description                  |
+| ------- | -------- | --------------------- | ---------------------------- |
+| tag     | No       | test                  | Tag to Create or Update      |
+| summary | No       | true                  | Add Summary to Job [^1]      |
+| token   | No       | `${{ github.token }}` | Only if External Tokens [^2] |
+
+[^1]: Set this to `false` to not write the Job Summary.
+
+[^2]: This input is NOT required unless you want to provide a PAT.
 
 With no inputs this will create/update the tag `test`.
 

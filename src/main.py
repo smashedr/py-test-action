@@ -59,9 +59,15 @@ with open(os.environ["GITHUB_OUTPUT"], "a") as f:
 
 with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
     print("### Python Test Action", file=f)
-    print(f"Updated: {input_tag} ➡️ `{sha}`", file=f)
-    print(f"{repo.html_url}/releases/tag/{input_tag}\n", file=f)
-    print(f"[Report an issues or request a feature]({repo.issues_url})", file=f)
+    print(
+        f"Updated: [{ref.ref}]({repo.html_url}/releases/tag/{ref.ref}) ➡️ `{sha}`",
+        file=f,
+    )
+    print(
+        f"<table><tr><th>Input</th><th>Value</th></tr><tr><td>tag</td><td>{input_tag}</td></tr><tr><td>summary</td><td>{input_summary}</td></tr></table>",
+        file=f,
+    )
+    print(f"[Report an issues or request a feature]({repo.html_url}/issues)", file=f)
 
 
 print("✅ \u001b[32;1mFinished Success")
