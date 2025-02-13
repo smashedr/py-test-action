@@ -64,10 +64,10 @@ with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
         file=f,
     )
     print(
-        f"<table><tr><th>Input</th><th>Value</th></tr><tr><td>tag</td><td>{input_tag}</td></tr><tr><td>summary</td><td>{input_summary}</td></tr></table>",
+        f"<details><summary>Inputs</summary><table><tr><th>Input</th><th>Value</th></tr><tr><td>tag</td><td>{input_tag}</td></tr><tr><td>summary</td><td>{input_summary}</td></tr></table></details>\n",  # noqa: E501
         file=f,
     )
-    print(f"[Report an issues or request a feature]({repo.html_url}/issues)", file=f)
+    print(f"[Report an issue or request a feature]({repo.html_url}/issues)", file=f)
 
 
 print("✅ \u001b[32;1mFinished Success")
