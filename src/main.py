@@ -1,23 +1,25 @@
-import datetime
 import os
-from wait import sleep
 
-input_ms = int(os.environ.get('INPUT_MILLISECONDS'))
-print(f'input_ms: {input_ms}')
+print("🏳️ Starting Python Test Action")
 
-repo = os.environ.get('GITHUB_REPOSITORY').split('/')[0]
-owner = os.environ.get('GITHUB_REPOSITORY').split('/')[1]
-print(f'repo: {repo}')
-print(f'owner: {owner}')
+input_tag = os.environ.get("INPUT_TAG")
+print(f"input_tag: {input_tag}")
+input_summary = os.environ.get("INPUT_SUMMARY")
+print(f"input_summary: {input_summary}")
+input_token = os.environ.get("INPUT_TOKEN")
+print(f"input_token: {input_token}")
 
-print(f'{datetime.datetime.now().isoformat()}')
-result = sleep(input_ms)
-print(f'result: {result}')
+repo = os.environ.get("GITHUB_REPOSITORY").split("/")[0]
+owner = os.environ.get("GITHUB_REPOSITORY").split("/")[1]
+print(f"repo: {repo}")
+print(f"owner: {owner}")
 
-with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-    print(f'time={result}', file=f)
+sha = "WIP"
 
-print('\u001b[32;1mFinished Success.')
+with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+    print(f"sha={sha}", file=f)
+
+print("✅ \u001b[32;1mFinished Success")
 
 # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter
 # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
