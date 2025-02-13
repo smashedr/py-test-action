@@ -1,5 +1,5 @@
 import os
-from github import Github, Auth
+from github import Github, Auth, GithubException
 
 print("🏳️ Starting Python Test Action")
 
@@ -21,21 +21,17 @@ print(f"repo: {repo}")
 sha = os.environ.get("GITHUB_SHA")
 print(f"sha: {sha}")
 
+
 # Action
 
 g = Github(auth=Auth.Token(input_token))
-
-user = g.get_user()
-print(f"user.login: {user.login}")
-
 repo = g.get_repo(f"{owner}/{repo}")
 print(f"repo.name: {repo.name}")
+print(f"repo.full_name: {repo.full_name}")
 
 try:
     ref = repo.get_git_ref(f"refs/tags/{input_tag}")
-    print(f"ref: {ref}")
     print(f"ref.ref: {ref.ref}")
-    print(f"ref.object: {ref.object}")
     print(f"ref.object.sha: {ref.object.sha}")
     if ref.object.sha != sha:
         print(f"Updating: {input_tag}")
@@ -43,16 +39,13 @@ try:
     else:
         print(f"Unchanged: {input_tag}")
 
-except Exception:
+except GithubException:
     print(f"Ref not found: {input_tag}")
     print(f"Creating: {input_tag}")
     ref = repo.create_git_ref(f"refs/tags/{input_tag}", sha)
-    print(f"ref: {ref}")
     print(f"ref.ref: {ref.ref}")
-    print(f"ref.object: {ref.object}")
     print(f"ref.object.sha: {ref.object.sha}")
 
-# To close connections after use
 g.close()
 
 
@@ -60,6 +53,15 @@ g.close()
 
 with open(os.environ["GITHUB_OUTPUT"], "a") as f:
     print(f"sha={sha}", file=f)
+
+
+# Summary
+
+with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+    print("### Python Test Action", file=f)
+    print(f"Updated: {input_tag} ➡️ `{sha}`", file=f)
+    print(f"https://github.com/{owner}/{repo}/releases/tag/{input_tag}", file=f)
+
 
 print("✅ \u001b[32;1mFinished Success")
 

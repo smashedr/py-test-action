@@ -19,6 +19,8 @@ jobs:
       - name: "Test Local Action"
         id: test
         uses: ./
+        with:
+          tag: "test"
 
       - name: "Echo Outputs"
         run: |
