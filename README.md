@@ -10,8 +10,13 @@
 
 # Python Test Action
 
+This action creates or updates the provided `tag` to the `sha` has that triggered the workflow.
+
+This includes inputs, outputs, job summary, and automatic token authentication.
+
 - [Inputs](#Inputs)
 - [Outputs](#Outputs)
+- [Examples](#Examples)
 - [Development](#Development)
 
 ## Inputs

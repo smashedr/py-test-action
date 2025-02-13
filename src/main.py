@@ -30,7 +30,7 @@ print(f"repo.name: {repo.name}")
 print(f"repo.full_name: {repo.full_name}")
 
 try:
-    ref = repo.get_git_ref(f"refs/tags/{input_tag}")
+    ref = repo.get_git_ref(f"tags/{input_tag}")
     print(f"ref.ref: {ref.ref}")
     print(f"ref.object.sha: {ref.object.sha}")
     if ref.object.sha != sha:
