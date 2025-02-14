@@ -34,12 +34,15 @@ try:
     if ref.object.sha != sha:
         print(f"Updating: {input_tag} -> {ref.object.sha}")
         ref.edit(sha, True)
+        result = "Updated"
     else:
         print(f"Unchanged: {input_tag} -> {ref.object.sha}")
+        result = "Unchanged"
 
 except GithubException:
     ref = r.create_git_ref(f"refs/tags/{input_tag}", sha)
     print(f"Created: {ref.ref} -> {ref.object.sha}")
+    result = "Created"
 
 g.close()
 
@@ -60,7 +63,7 @@ with open(os.environ["GITHUB_OUTPUT"], "a") as f:
 with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
     print("### Python Test Action", file=f)
     print(
-        f"Updated: [{ref.ref}]({r.html_url}/releases/tag/{input_tag}) ➡️ `{sha}`",
+        f"{result}: [{ref.ref}]({r.html_url}/releases/tag/{input_tag}) ➡️ `{sha}`",
         file=f,
     )
     print(
