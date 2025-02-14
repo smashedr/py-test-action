@@ -21,11 +21,11 @@ This includes inputs, outputs, job summary, and automatic token authentication.
 
 ## Inputs
 
-| input   | required | default               | description                  |
-| ------- | -------- | --------------------- | ---------------------------- |
-| tag     | No       | test                  | Tag to Create or Update      |
-| summary | No       | true                  | Add Summary to Job           |
-| token   | No       | `${{ github.token }}` | Only if External Tokens [^1] |
+| input   | required | default               | description                 |
+| ------- | -------- | --------------------- | --------------------------- |
+| tag     | No       | test                  | Tag to Create or Update     |
+| summary | No       | true                  | Add Summary to Job          |
+| token   | No       | `${{ github.token }}` | Only if External Token [^1] |
 
 With no inputs this will create/update the tag `test`.
 
@@ -42,7 +42,7 @@ With all inputs. Note that `token` is NOT required.
   with:
     tag: test
     summary: true
-    token: ${{ secrets.GITHUB_TOKEN }} # there is no need to add this input anymore
+    token: ${{ secrets.PAT }} # only include this if you need to use a PAT
 ```
 
 ### Permissions
