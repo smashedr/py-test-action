@@ -24,12 +24,8 @@ This includes inputs, outputs, job summary, and automatic token authentication.
 | input   | required | default               | description                  |
 | ------- | -------- | --------------------- | ---------------------------- |
 | tag     | No       | test                  | Tag to Create or Update      |
-| summary | No       | true                  | Add Summary to Job [^1]      |
-| token   | No       | `${{ github.token }}` | Only if External Tokens [^2] |
-
-[^1]: Set this to `false` to not write the Job Summary.
-
-[^2]: This input is NOT required unless you want to provide a PAT.
+| summary | No       | true                  | Add Summary to Job           |
+| token   | No       | `${{ github.token }}` | Only if External Tokens [^1] |
 
 With no inputs this will create/update the tag `test`.
 
@@ -115,3 +111,7 @@ You should also review the options from `act --help`
 
 Note, the `.env`, `.secrets` and `.vars` files are automatically sourced with no extra options.
 To source `event.json` you need to run act with `act -e event.json`
+
+[^1]:
+    The `${{ github.token }}` / `{{ secrets.GITHUB_TOKEN }}` is automatically passed, there is no need to manually pass these!
+    This is only available to allow users to pass a different token they have created and defined in their `secrets`.
