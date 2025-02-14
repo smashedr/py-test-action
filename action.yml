@@ -6,14 +6,22 @@ branding:
   color: "green"
 
 inputs:
-  milliseconds:
-    description: "Your input description here"
+  tag:
+    description: "Tag to Create or Update"
+    default: "test"
     required: false
-    default: "1000"
+  summary:
+    description: "Add Summary to Job"
+    default: "true"
+    required: false
+  token:
+    description: "GitHub Token"
+    default: ${{ github.token }}
+    required: false
 
 outputs:
-  time:
-    description: "Your output description here"
+  sha:
+    description: "Tag Hash"
 
 runs:
   using: "docker"
