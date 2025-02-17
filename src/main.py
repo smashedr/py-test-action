@@ -1,14 +1,20 @@
 import os
 from github import Github, Auth, GithubException
 
-print("🏳️ Starting Python Test Action")
+
+version = os.environ.get("GITHUB_ACTION_PATH") or "Dev Build"
+print(f"GITHUB_ACTION_PATH: {version}")
+version = version.rsplit("/", 1)[-1]
+print(f"version: {version}")
+
+print(f"🏳️ Starting Python Test Action - {version}")
 
 
 # Inputs
 
 input_tag = os.environ.get("INPUT_TAG")
 print(f"input_tag: {input_tag}")
-input_summary = os.environ.get("INPUT_SUMMARY")
+input_summary = os.environ.get("INPUT_SUMMARY", "").strip().lower()
 print(f"input_summary: {input_summary}")
 input_token = os.environ.get("INPUT_TOKEN")
 print(f"input_token: {input_token}")
@@ -60,17 +66,18 @@ with open(os.environ["GITHUB_OUTPUT"], "a") as f:
 # Summary
 # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#adding-a-job-summary
 
-with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
-    print("### Python Test Action", file=f)
-    print(
-        f"{result}: [{ref.ref}]({r.html_url}/releases/tag/{input_tag}) ➡️ `{sha}`",
-        file=f,
-    )
-    print(
-        f"<details><summary>Inputs</summary><table><tr><th>Input</th><th>Value</th></tr><tr><td>tag</td><td>{input_tag}</td></tr><tr><td>summary</td><td>{input_summary}</td></tr></table></details>\n",  # noqa: E501
-        file=f,
-    )
-    print(f"[Report an issue or request a feature]({r.html_url}/issues)", file=f)
+if input_summary in ["y", "yes", "true", "on"]:
+    inputs_table = ["<table><tr><th>Input</th><th>Value</th></tr>"]
+    for x in ["tag", "summary"]:
+        value = globals()[f"input_{x}"]
+        inputs_table.append(f"<tr><td>{x}</td><td>{value or '-'}</td></tr>")
+    inputs_table.append("</table>")
+
+    with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+        print("### Python Test Action", file=f)
+        print(f"{result}: [{ref.ref}]({r.html_url}/releases/tag/{input_tag}) ➡️ `{sha}`", file=f)
+        print(f"<details><summary>Inputs</summary>{''.join(inputs_table)}</details>\n", file=f)
+        print(f"[Report an issue or request a feature]({r.html_url}/issues)", file=f)
 
 
 print("✅ \u001b[32;1mFinished Success")
@@ -81,3 +88,23 @@ print("✅ \u001b[32;1mFinished Success")
 # print("::notice::Notice Annotation")
 # print("::warning::Warning Annotation")
 # print("::error::Error Annotation")
+
+
+# Colors
+# print("\033[37;1m White Bold")
+# print("\033[36;1m Cyan Bold")
+# print("\033[35;1m Magenta Bold")
+# print("\033[34;1m Blue Bold")
+# print("\033[33;1m Yellow Bold")
+# print("\033[32;1m Green Bold")
+# print("\033[31;1m Red Bold")
+# print("\033[30;1m Grey Bold")
+# print("\033[37m White")
+# print("\033[36m Cyan")
+# print("\033[35m Magenta")
+# print("\033[34m Blue")
+# print("\033[33m Yellow")
+# print("\033[32m Green")
+# print("\033[31m Red")
+# print("\033[30m Grey")
+# print("\033[0m RESET")

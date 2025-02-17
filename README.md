@@ -14,6 +14,11 @@ This action creates or updates the provided `tag` to the `sha` has that triggere
 
 This includes inputs, outputs, job summary, and automatic token authentication.
 
+> [!NOTE]  
+> Note: this is a simple docker action and is built every run from the Dockerfile.
+> If you have a more complex build you should build and push images to GHCR.  
+> For this you should instead use this template: https://github.com/smashedr/docker-test-action
+
 - [Inputs](#Inputs)
 - [Outputs](#Outputs)
 - [Examples](#Examples)
@@ -31,14 +36,14 @@ With no inputs this will create/update the tag `test`.
 
 ```yaml
 - name: 'Python Test Action'
-  uses: smashedr/py-test-action@master
+  uses: smashedr/py-test-action@v1
 ```
 
 With all inputs. Note that `token` is NOT required.
 
 ```yaml
 - name: 'Python Test Action'
-  uses: smashedr/py-test-action@master
+  uses: smashedr/py-test-action@v1
   with:
     tag: test
     summary: true
@@ -63,7 +68,7 @@ permissions:
 ```yaml
 - name: 'Python Test Action'
   id: test
-  uses: smashedr/py-test-action@master
+  uses: smashedr/py-test-action@v1
 
 - name: 'Echo Output'
   run: |
@@ -93,7 +98,7 @@ jobs:
 
       - name: 'Python Test Action'
         id: test
-        uses: smashedr/py-test-action@master
+        uses: smashedr/py-test-action@v1
 
       - name: 'Echo Outputs'
         run: |
@@ -102,8 +107,11 @@ jobs:
 
 # Development
 
+If you would like to submit a PR, please review the [CONTRIBUTING.md](CONTRIBUTING.md).
+
 1. Install `act`: https://nektosact.com/installation/index.html
-2. Run `act -j test`
+2. Create a `.secrets` file with: `GITHUB_TOKEN="ghp_xxx"`
+3. Run `act -j test`
 
 For advanced using with things like secrets, variables and context see: https://nektosact.com/usage/index.html
 
