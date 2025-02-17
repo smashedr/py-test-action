@@ -31,14 +31,14 @@ With no inputs this will create/update the tag `test`.
 
 ```yaml
 - name: 'Python Test Action'
-  uses: smashedr/py-test-action@master
+  uses: smashedr/py-test-action@v1
 ```
 
 With all inputs. Note that `token` is NOT required.
 
 ```yaml
 - name: 'Python Test Action'
-  uses: smashedr/py-test-action@master
+  uses: smashedr/py-test-action@v1
   with:
     tag: test
     summary: true
@@ -63,7 +63,7 @@ permissions:
 ```yaml
 - name: 'Python Test Action'
   id: test
-  uses: smashedr/py-test-action@master
+  uses: smashedr/py-test-action@v1
 
 - name: 'Echo Output'
   run: |
@@ -93,7 +93,7 @@ jobs:
 
       - name: 'Python Test Action'
         id: test
-        uses: smashedr/py-test-action@master
+        uses: smashedr/py-test-action@v1
 
       - name: 'Echo Outputs'
         run: |
