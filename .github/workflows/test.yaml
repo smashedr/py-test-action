@@ -13,6 +13,8 @@ on:
       - "package*.json"
       - "requirements*.txt"
       - "action.yml"
+      - "Dockerfile"
+      - "pyproject.toml"
 
 jobs:
   test:
