@@ -1,8 +1,9 @@
 import os
-from github import Github, Auth, GithubException
+
+from github import Auth, Github, GithubException
 
 
-version = os.environ.get("GITHUB_ACTION_PATH") or "Dev Build"
+version: str = os.environ.get("GITHUB_ACTION_PATH", "Dev Build")
 print(f"GITHUB_ACTION_PATH: {version}")
 version = version.rsplit("/", 1)[-1]
 print(f"version: {version}")
@@ -14,17 +15,17 @@ print(f"🏳️ Starting Python Test Action - {version}")
 
 input_tag = os.environ.get("INPUT_TAG")
 print(f"input_tag: {input_tag}")
-input_summary = os.environ.get("INPUT_SUMMARY", "").strip().lower()
+input_summary: str = os.environ.get("INPUT_SUMMARY", "").strip().lower()
 print(f"input_summary: {input_summary}")
-input_token = os.environ.get("INPUT_TOKEN")
+input_token: str = os.environ.get("INPUT_TOKEN", "")
 print(f"input_token: {input_token}")
 
-owner = os.environ.get("GITHUB_REPOSITORY").split("/")[0]
-repo = os.environ.get("GITHUB_REPOSITORY").split("/")[1]
+owner: str = os.environ.get("GITHUB_REPOSITORY", "").split("/")[0]
+repo: str = os.environ.get("GITHUB_REPOSITORY", "").split("/")[1]
 print(f"owner: {owner}")
 print(f"repo: {repo}")
 
-sha = os.environ.get("GITHUB_SHA")
+sha: str = os.environ.get("GITHUB_SHA", "")
 print(f"sha: {sha}")
 
 
