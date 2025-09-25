@@ -5,7 +5,8 @@ LABEL org.opencontainers.image.description="Python Test Action"
 LABEL org.opencontainers.image.authors="smashedr"
 
 COPY requirements.txt /
+# hadolint ignore=DL3013,DL3042
 RUN python -m pip install -Ur requirements.txt
 
-COPY . /src
+COPY src /src
 ENTRYPOINT ["python", "/src/main.py"]
