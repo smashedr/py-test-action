@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Test Local Action"
         id: test
@@ -41,3 +41,9 @@ jobs:
             echo "No Output: sha"
             exit 1
           fi
+
+      #- name: "Schedule Failure Notification"
+      #  if: ${{ failure() && github.event_name == 'schedule' }}
+      #  uses: sarisia/actions-status-discord@v1
+      #  with:
+      #    webhook: ${{ secrets.DISCORD_WEBHOOK }}
