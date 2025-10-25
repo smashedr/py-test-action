@@ -3,8 +3,8 @@ import os
 from github import Auth, Github, GithubException
 
 
-version: str = os.environ.get("GITHUB_ACTION_PATH", "Dev Build")
-print(f"GITHUB_ACTION_PATH: {version}")
+version: str = os.environ.get("GITHUB_WORKFLOW_REF", "") or "Dev Build"
+print(f"GITHUB_WORKFLOW_REF: {version}")
 version = version.rsplit("/", 1)[-1]
 print(f"version: {version}")
 
