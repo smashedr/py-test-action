@@ -15,11 +15,11 @@ print(f"🏳️ Starting Python Test Action - {version}")
 
 # Inputs
 
-input_tag = os.environ.get("INPUT_TAG")
+input_tag = os.environ.get("INPUT_TAG").strip()
 print(f"input_tag: {input_tag}")
 input_summary: str = os.environ.get("INPUT_SUMMARY", "").strip().lower()
 print(f"input_summary: {input_summary}")
-input_token: str = os.environ.get("INPUT_TOKEN", "")
+input_token: str = os.environ.get("INPUT_TOKEN", "").strip()
 print(f"input_token: {input_token}")
 
 # Parse JSON or YAML Input Data
@@ -86,7 +86,7 @@ with open(os.environ["GITHUB_OUTPUT"], "a") as f:
 
 if input_summary in ["y", "yes", "true", "on"]:
     inputs_table = ["<table><tr><th>Input</th><th>Value</th></tr>"]
-    for x in ["tag", "data", "summary"]:
+    for x in ["tag", "summary"]:
         value = globals()[f"input_{x}"]
         inputs_table.append(f"<tr><td>{x}</td><td>{value or '-'}</td></tr>")
     inputs_table.append("</table>")
