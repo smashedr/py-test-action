@@ -15,7 +15,7 @@ print(f"🏳️ Starting Python Test Action - {version}")
 
 # Inputs
 
-input_tag = os.environ.get("INPUT_TAG").strip()
+input_tag = os.environ.get("INPUT_TAG", "").strip()
 print(f"input_tag: {input_tag}")
 input_summary: str = os.environ.get("INPUT_SUMMARY", "").strip().lower()
 print(f"input_summary: {input_summary}")
