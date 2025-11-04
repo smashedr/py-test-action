@@ -2,9 +2,8 @@ import json
 import os
 
 from github import Auth, Github, GithubException
-
-
 from yaml import Loader, load
+
 
 version: str = os.environ.get("GITHUB_WORKFLOW_REF", "") or "Source Build"
 print(f"GITHUB_WORKFLOW_REF: {version}")

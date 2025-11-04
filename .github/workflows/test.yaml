@@ -54,7 +54,8 @@ jobs:
           tag: "test"
           #data: '{"key": "value"}'
           data: |
-            broken: ralf
+            status: broken
+            by: ralf
 
       - name: "Validate Outputs"
         run: |
