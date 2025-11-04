@@ -87,7 +87,7 @@ with open(os.environ["GITHUB_OUTPUT"], "a") as f:
 
 if input_summary in ["y", "yes", "true", "on"]:
     inputs_table = ["<table><tr><th>Input</th><th>Value</th></tr>"]
-    for x in ["tag", "summary"]:
+    for x in ["tag", "data", "summary"]:
         value = globals()[f"input_{x}"]
         inputs_table.append(f"<tr><td>{x}</td><td>{value or '-'}</td></tr>")
     inputs_table.append("</table>")
