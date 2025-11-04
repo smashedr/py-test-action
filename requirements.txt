@@ -1,1 +1,2 @@
-PyGitHub
+PyGitHub>=2,<3
+pyyaml>=6,<7

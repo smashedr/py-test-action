@@ -44,11 +44,12 @@ This includes inputs, outputs, job summary, and automatic token authentication.
 
 ## Inputs
 
-| Input   | Req. | Default&nbsp;Value | Input&nbsp;Description  |
-| :------ | :--: | :----------------- | :---------------------- |
-| tag     |  -   | `test`             | Tag to Create or Update |
-| summary |  -   | `true`             | Add Summary to Job      |
-| token   |  -   | `github.token`     | Only for PAT [^1]       |
+| Input   | Default&nbsp;Value | Input&nbsp;Description  |
+| :------ | :----------------- | :---------------------- |
+| tag     | `test`             | Tag to Create or Update |
+| data    | -                  | Test JSON or YAML Input |
+| summary | `true`             | Add Summary to Job      |
+| token   | `github.token`     | Only for PAT [^1]       |
 
 With no inputs this will create/update the tag `test`.
 
