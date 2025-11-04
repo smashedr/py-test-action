@@ -9,6 +9,8 @@ inputs:
   tag:
     description: "Tag to Create or Update"
     default: "test"
+  data:
+    description: "Example Data Input"
   summary:
     description: "Add Summary to Job"
     default: "true"
