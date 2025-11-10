@@ -41,6 +41,6 @@ jobs:
 
       - name: "Actions Up"
         continue-on-error: true
-        uses: cssnr/actions-up-action@master
+        uses: cssnr/actions-up-action@latest
         with:
           exclude: "cssnr/.*,actions/.*"

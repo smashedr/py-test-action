@@ -1,6 +1,7 @@
 [![GitHub Tag Major](https://img.shields.io/github/v/tag/smashedr/py-test-action?sort=semver&filter=!v*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/smashedr/py-test-action/tags)
 [![GitHub Tag Minor](https://img.shields.io/github/v/tag/smashedr/py-test-action?sort=semver&filter=!v*.*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/smashedr/py-test-action/releases)
 [![GitHub Release Version](https://img.shields.io/github/v/release/smashedr/py-test-action?logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/smashedr/py-test-action/releases/latest)
+[![Action Run Using](https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fpy-test-action%2Frefs%2Fheads%2Fmaster%2Faction.yml&query=%24.runs.using&logo=githubactions&logoColor=white&label=runs)](https://github.com/smashedr/py-test-action/blob/master/action.yml)
 [![Workflow Release](https://img.shields.io/github/actions/workflow/status/smashedr/py-test-action/release.yaml?logo=cachet&label=release)](https://github.com/smashedr/py-test-action/actions/workflows/release.yaml)
 [![Workflow Test](https://img.shields.io/github/actions/workflow/status/smashedr/py-test-action/test.yaml?logo=cachet&label=test)](https://github.com/smashedr/py-test-action/actions/workflows/test.yaml)
 [![Workflow Lint](https://img.shields.io/github/actions/workflow/status/smashedr/py-test-action/lint.yaml?logo=cachet&label=lint)](https://github.com/smashedr/py-test-action/actions/workflows/lint.yaml)
@@ -10,8 +11,8 @@
 [![GitHub Contributors](https://img.shields.io/github/contributors-anon/smashedr/py-test-action?logo=github)](https://github.com/smashedr/py-test-action/graphs/contributors)
 [![GitHub Repo Size](https://img.shields.io/github/repo-size/smashedr/py-test-action?logo=bookstack&logoColor=white&label=repo%20size)](https://github.com/smashedr/py-test-action?tab=readme-ov-file#readme)
 [![GitHub Top Language](https://img.shields.io/github/languages/top/smashedr/py-test-action?logo=htmx)](https://github.com/smashedr/py-test-action)
-[![GitHub Forks](https://img.shields.io/github/forks/smashedr/py-test-action?style=flat&logo=github)](https://github.com/smashedr/py-test-action/forks)
 [![GitHub Discussions](https://img.shields.io/github/discussions/smashedr/py-test-action?logo=github)](https://github.com/smashedr/py-test-action/discussions)
+[![GitHub Forks](https://img.shields.io/github/forks/smashedr/py-test-action?style=flat&logo=github)](https://github.com/smashedr/py-test-action/forks)
 [![GitHub Repo Stars](https://img.shields.io/github/stars/smashedr/py-test-action?style=flat&logo=github)](https://github.com/smashedr/py-test-action/stargazers)
 [![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=github&label=org%20stars)](https://cssnr.github.io/)
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
@@ -210,9 +211,9 @@ These actions are not published on the Marketplace, but may be useful.
 These are basic action templates that I use for creating new actions.
 
 - [js-test-action](https://github.com/smashedr/js-test-action?tab=readme-ov-file#readme) - JavaScript
-- [py-test-action](https://github.com/smashedr/py-test-action?tab=readme-ov-file#readme) - Python
 - [ts-test-action](https://github.com/smashedr/ts-test-action?tab=readme-ov-file#readme) - TypeScript
-- [docker-test-action](https://github.com/smashedr/docker-test-action?tab=readme-ov-file#readme) - Docker Image
+- [py-test-action](https://github.com/smashedr/py-test-action?tab=readme-ov-file#readme) - Python (Dockerfile)
+- [docker-test-action](https://github.com/smashedr/docker-test-action?tab=readme-ov-file#readme) - Docker (Image)
 
 Note: The `docker-test-action` builds, runs and pushes images to [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
@@ -220,7 +221,7 @@ Note: The `docker-test-action` builds, runs and pushes images to [GitHub Contain
 
 </details>
 
-For a full list of current projects to support visit: [https://cssnr.github.io/](https://cssnr.github.io/)
+For a full list of current projects visit: [https://cssnr.github.io/](https://cssnr.github.io/)
 
 # Development
 
