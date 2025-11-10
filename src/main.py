@@ -44,6 +44,9 @@ print("::group::GitHub Event Data")
 print(json.dumps(event, indent=4))
 print("::endgroup::")
 
+repository = event.get("repository", {})
+print(f"full_name: {repository.get('full_name')}")
+
 owner: str = os.environ.get("GITHUB_REPOSITORY", "").split("/")[0]
 repo: str = os.environ.get("GITHUB_REPOSITORY", "").split("/")[1]
 print(f"owner: {owner}")
