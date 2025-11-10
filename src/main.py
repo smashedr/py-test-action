@@ -10,21 +10,21 @@ print(f"GITHUB_WORKFLOW_REF: {version}")
 version = version.rsplit("/", 1)[-1]
 print(f"version: {version}")
 
-print(f"🏳️ Starting Python Test Action - {version}")
+print(f"🏳️ Starting Python Test Action - \033[35;1m{version}")
 
 
 # Inputs
 
 input_tag = os.environ.get("INPUT_TAG", "").strip()
-print(f"input_tag: {input_tag}")
+print(f"input_tag: \033[36;1m{input_tag}")
 input_summary: str = os.environ.get("INPUT_SUMMARY", "").strip().lower()
-print(f"input_summary: {input_summary}")
+print(f"input_summary: \033[36;1m{input_summary}")
 input_token: str = os.environ.get("INPUT_TOKEN", "").strip()
-print(f"input_token: {input_token}")
+print(f"input_token: \033[36;1m{input_token}")
+input_data = os.environ.get("INPUT_DATA", "").strip()
+print(f"input_data: \033[36;1m{repr(input_data)}")
 
 # Parse JSON or YAML Input Data
-input_data = os.environ.get("INPUT_DATA", "").strip()
-print(f"input_data: \033[36;1m{input_data}")
 try:
     data = json.loads(input_data)
 except Exception as error:
@@ -34,8 +34,18 @@ except Exception as error:
     except Exception as error:
         print(f"::debug::{error}")
         data = None
-print(f"data: \033[36;1m{data}")
 
+print(f"data: {data}")
+
+with open(os.environ["GITHUB_EVENT_PATH"]) as f:
+    event = json.load(f)
+
+print("::group::GitHub Event Data")
+print(json.dumps(event, indent=4))
+print("::endgroup::")
+
+repository = event.get("repository", {})
+print(f"full_name: {repository.get('full_name')}")
 
 owner: str = os.environ.get("GITHUB_REPOSITORY", "").split("/")[0]
 repo: str = os.environ.get("GITHUB_REPOSITORY", "").split("/")[1]

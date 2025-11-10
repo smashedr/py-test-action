@@ -1,5 +1,7 @@
 name: "Test"
 
+# actions-up-ignore-file
+
 on:
   workflow_dispatch:
   #schedule:
@@ -15,6 +17,10 @@ on:
       - "action.yml"
       - "Dockerfile"
       - "pyproject.toml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
