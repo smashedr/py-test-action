@@ -41,7 +41,7 @@ with open(os.environ["GITHUB_EVENT_PATH"]) as f:
     event = json.load(f)
 
 print("::group::GitHub Event Data")
-print(event)
+print(json.dumps(event, indent=4))
 print("::endgroup::")
 
 owner: str = os.environ.get("GITHUB_REPOSITORY", "").split("/")[0]
