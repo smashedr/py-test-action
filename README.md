@@ -167,7 +167,7 @@ and [additional](https://cssnr.com/) open source projects.
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
 
-Additionally, you can support other GitHub Actions I have published:
+Additionally, you can support other [GitHub Actions](https://actions.cssnr.com/) I have published:
 
 - [Stack Deploy Action](https://github.com/cssnr/stack-deploy-action?tab=readme-ov-file#readme)
 - [Portainer Stack Deploy Action](https://github.com/cssnr/portainer-stack-deploy-action?tab=readme-ov-file#readme)
@@ -210,10 +210,11 @@ These actions are not published on the Marketplace, but may be useful.
 
 These are basic action templates that I use for creating new actions.
 
-- [js-test-action](https://github.com/smashedr/js-test-action?tab=readme-ov-file#readme) - JavaScript
-- [ts-test-action](https://github.com/smashedr/ts-test-action?tab=readme-ov-file#readme) - TypeScript
-- [py-test-action](https://github.com/smashedr/py-test-action?tab=readme-ov-file#readme) - Python (Dockerfile)
-- [docker-test-action](https://github.com/smashedr/docker-test-action?tab=readme-ov-file#readme) - Docker (Image)
+- [javascript-action](https://github.com/smashedr/javascript-action?tab=readme-ov-file#readme) - JavaScript
+- [typescript-action](https://github.com/smashedr/typescript-action?tab=readme-ov-file#readme) - TypeScript
+- [py-test-action](https://github.com/smashedr/py-test-action?tab=readme-ov-file#readme) - Dockerfile Python
+- [test-action-uv](https://github.com/smashedr/test-action-uv?tab=readme-ov-file#readme) - Dockerfile Python UV
+- [docker-test-action](https://github.com/smashedr/docker-test-action?tab=readme-ov-file#readme) - Docker Image Python
 
 Note: The `docker-test-action` builds, runs and pushes images to [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
@@ -225,7 +226,7 @@ For a full list of current projects visit: [https://cssnr.github.io/](https://cs
 
 # Development
 
-Development instructions have been moved to the local [CONTRIBUTING.md](CONTRIBUTING.md).
+Development instructions have been moved to the local [CONTRIBUTING.md](#contributing-ov-file).
 
 [^1]:
     The `${{ github.token }}` / `{{ secrets.GITHUB_TOKEN }}` is automatically passed, there is no need to manually pass these!
