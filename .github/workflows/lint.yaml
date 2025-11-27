@@ -3,8 +3,8 @@ name: "Lint"
 on:
   workflow_dispatch:
   push:
-    branches: [master]
-  pull_request:
+#    branches: [master]
+#  pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -21,26 +21,21 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: "Debug event.json"
-        if: ${{ !github.event.act }}
         continue-on-error: true
-        run: |
-          cat "${GITHUB_EVENT_PATH}"
+        run: cat "${GITHUB_EVENT_PATH}"
 
       - name: "Debug CTX github"
-        if: ${{ !github.event.act }}
         continue-on-error: true
         env:
           GITHUB_CTX: ${{ toJSON(github) }}
         run: echo "$GITHUB_CTX"
 
       - name: "Debug Environment"
-        if: ${{ !github.event.act }}
         continue-on-error: true
-        run: |
-          env
+        run: env
 
       - name: "Setup Python 3.13"
         uses: actions/setup-python@v5
@@ -131,6 +126,14 @@ jobs:
         uses: hadolint/hadolint-action@v3.3.0
         with:
           dockerfile: Dockerfile
+
+      #- name: "ShellCheck"
+      #  if: ${{ !cancelled() }}
+      #  uses: ludeeus/action-shellcheck@master
+      #  env:
+      #    SHELLCHECK_OPTS: -x
+      #  with:
+      #    scandir: src
 
       #- name: "Vale"
       #  if: ${{ !cancelled() }}
