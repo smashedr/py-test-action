@@ -26,7 +26,6 @@
 - [Tags](#Tags)
 - [Support](#Support)
 - [Contributing](#Contributing)
-- [Development](#Development)
 
 Python Test Action Template.
 
@@ -51,7 +50,7 @@ This includes inputs, outputs, job summary, and automatic token authentication.
 | tag     | `test`             | Tag to Create or Update |
 | data    | -                  | Test JSON or YAML Input |
 | summary | `true`             | Add Summary to Job      |
-| token   | `github.token`     | Only for PAT [^1]       |
+| token   | `github.token`     | Only for PAT            |
 
 With no inputs this will create/update the tag `test`.
 
@@ -228,11 +227,3 @@ Note: The `docker-test-action` builds, runs and pushes images to [GitHub Contain
 </details>
 
 For a full list of current projects visit: [https://cssnr.github.io/](https://cssnr.github.io/)
-
-# Development
-
-Development instructions have been moved to the local [CONTRIBUTING.md](#contributing-ov-file).
-
-[^1]:
-    The `${{ github.token }}` / `{{ secrets.GITHUB_TOKEN }}` is automatically passed, there is no need to manually pass these!
-    This is only available to allow users to pass a different token they have created and defined in their `secrets`.
