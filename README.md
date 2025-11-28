@@ -21,6 +21,9 @@
 
 # Python Test Action
 
+<a title="Python Action Template" href="https://actions.cssnr.com/" target="_blank">
+<img alt="Python Action Template" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/smashedr/py-test-action/refs/heads/master/.github/assets/logo.svg"></a>
+
 - [Inputs](#Inputs)
 - [Outputs](#Outputs)
 - [Tags](#Tags)
